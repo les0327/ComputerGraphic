@@ -6,13 +6,10 @@ import java.awt.*;
 
 public class FrameDrawing extends PApplet{
 
-
-
-
-    private int   ROTATE  = 0;
-    private boolean flag  = true;
     private BasicElement bs; // basic element
-    private Drawing drawing;
+    private Drawing drawing; // drawing
+    private Animation animation; // animation
+
 
     public static void main(String[] args) {
         PApplet.main("lab1.FrameDrawing");
@@ -31,6 +28,12 @@ public class FrameDrawing extends PApplet{
         noFill();
 
         bs = new BasicElement(50, 50, 50, this);
+        Shape[] shapes = new BasicElement[30];
+        for (int i = 0; i < shapes.length; i++)
+            shapes[i] = new BasicElement(0, 0, (i + 1) * 10, this);
+        drawing = new Drawing(3, shapes, this);
+        animation = new Animation(drawing, 360, 6, 0.016f/2f, this);
+
 //        drawing = new Drawing(3, 10, 5, 60, this);
 //        drawing = new Drawing(60, 10, 5, 70, this);
 //        drawing = new Drawing(30, 10, 10, 36, this);
@@ -40,25 +43,9 @@ public class FrameDrawing extends PApplet{
     @Override
     public void draw() {
         background(0xFFFFFF);
-
+        stroke(0, 0, 255);
         bs.display();
-
-        translate(width/2, height/2);
-
-        if (flag)
-            rotate(radians(ROTATE++));
-        else
-            rotate(radians(ROTATE--));
-
-        if (ROTATE == 60)
-            flag = false;
-
-        if (ROTATE == -60)
-            flag = true;
-
-        pushMatrix();
-        drawing.display();
-        popMatrix();
+        animation.start();
     }
 
 

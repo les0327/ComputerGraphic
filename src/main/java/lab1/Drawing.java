@@ -2,31 +2,23 @@ package lab1;
 
 import processing.core.PApplet;
 
-class Drawing {
+public class Drawing  implements Shape{
 
     //    Drawing params
     private float angle;
-    private float basicRadius;
-    private float deltaRadius;
-    private int count;
     private PApplet parent;
-    private BasicElement[] basicElements;
+    private Shape[] shapes;
 
-    public Drawing(float angle, float basicRadius, float deltaRadius, int count, PApplet parent) {
-
+    public Drawing(float angle, Shape[] shapes, PApplet parent) {
         this.angle         = angle;
-        this.basicRadius   = basicRadius;
-        this.deltaRadius   = deltaRadius;
-        this.count         = count;
         this.parent        = parent;
-        this.basicElements = new BasicElement[count];
-        for (int i = 0; i < basicElements.length; i++)
-            basicElements[i] = new BasicElement(0, 0, basicRadius + deltaRadius *i, parent);
+        this.shapes        = shapes;
     }
 
-    void display(){
-        for (BasicElement element : basicElements){
-            element.display();
+    @Override
+    public void display(){
+        for (Shape shape : shapes){
+            shape.display();
             parent.rotate(PApplet.radians(angle));
         }
     }

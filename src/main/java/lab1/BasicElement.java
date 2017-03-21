@@ -3,7 +3,7 @@ package lab1;
 
 import processing.core.PApplet;
 
-class BasicElement{
+public class BasicElement implements Shape{
 
     private int centerX;
     private int centerY;
@@ -18,7 +18,8 @@ class BasicElement{
         this.parent  = parent;
     }
 
-    void display(){
+    @Override
+    public void display() {
         float x1 = centerX;
         float y1 = centerY - radius;
         float x2 = (float) (centerX - radius * Math.sin(Math.toRadians(60)));
