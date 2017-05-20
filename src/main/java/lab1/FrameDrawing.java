@@ -18,7 +18,7 @@ public class FrameDrawing extends PApplet{
     @Override
     public void settings() {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        size(toolkit.getScreenSize().width, toolkit.getScreenSize().height);
+        size(toolkit.getScreenSize().width - 50, toolkit.getScreenSize().height - 50, P2D);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class FrameDrawing extends PApplet{
         noFill();
 
         bs = new BasicElement(50, 50, 50, this);
-        Shape[] shapes = new BasicElement[30];
+        Shape[] shapes = new BasicElement[60];
         for (int i = 0; i < shapes.length; i++)
             shapes[i] = new BasicElement(0, 0, (i + 1) * 10, this);
         drawing = new Drawing(3, shapes, this);

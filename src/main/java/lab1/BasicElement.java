@@ -5,13 +5,13 @@ import processing.core.PApplet;
 
 public class BasicElement implements Shape{
 
-    private int centerX;
-    private int centerY;
+    private float centerX;
+    private float centerY;
     private float radius;
 
     private PApplet parent;
 
-    BasicElement(int centerX, int centerY, float radius, PApplet parent) {
+    public BasicElement(float centerX, float centerY, float radius, PApplet parent) {
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius  = radius;
@@ -28,5 +28,13 @@ public class BasicElement implements Shape{
 
         parent.ellipse(centerX, centerY, radius*2, radius*2);
         parent.triangle(x1, y1, x2, y23, x3, y23);
+    }
+
+    public void setCenterX(float centerX) {
+        this.centerX = centerX;
+    }
+
+    public void setCenterY(float centerY) {
+        this.centerY = centerY;
     }
 }

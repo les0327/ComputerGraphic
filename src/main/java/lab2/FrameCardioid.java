@@ -7,7 +7,7 @@ import processing.core.PApplet;
 
 import java.awt.*;
 
-public class Frame extends PApplet{
+public class FrameCardioid extends PApplet{
 
     private Shape cardioid;
     private Drawing shape;
@@ -16,13 +16,13 @@ public class Frame extends PApplet{
     public static final int ppc = 25;
 
     public static void main(String[] args) {
-        PApplet.main("lab2.Frame");
+        PApplet.main("lab2.FrameCardioid");
     }
 
     @Override
     public void settings() {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        size(toolkit.getScreenSize().width, toolkit.getScreenSize().height);
+        size(toolkit.getScreenSize().width - 50, toolkit.getScreenSize().height - 50, P2D);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Frame extends PApplet{
 
         background(0xFFFFFF);
         stroke(0x000000);
-        strokeWeight(0.1f);
+        strokeWeight(0.5f);
         noFill();
         translate(width/2, height/2);
         textSize(10);
@@ -59,7 +59,7 @@ public class Frame extends PApplet{
         animation.start();
     }
 
-    public void drawCoordinateSystem(){
+    private void drawCoordinateSystem(){
         int bufx = width/2;
         int bufy = height/2;
         line(0, bufy, width, bufy);

@@ -47,8 +47,8 @@ public class Cardioid implements Shape {
             yList.add(-A * R * PApplet.sin(t) + R * PApplet.sin(B * t) + cy);
         }
 
-        double[] xd = xList.stream().mapToDouble(x -> x * Frame.ppc).toArray();
-        double[] yd = yList.stream().mapToDouble(y -> y * Frame.ppc).toArray();
+        double[] xd = xList.stream().mapToDouble(x -> x * FrameCardioid.ppc).toArray();
+        double[] yd = yList.stream().mapToDouble(y -> y * FrameCardioid.ppc).toArray();
 
         x = new float[xd.length];
         y = new float[yd.length];
@@ -63,5 +63,13 @@ public class Cardioid implements Shape {
     public void display() {
         for (int i = 1; i < x.length; i++)
             parent.line(x[i - 1], y[i - 1], x[i], y[i]);
+    }
+
+    public float[] getX() {
+        return x;
+    }
+
+    public float[] getY() {
+        return y;
     }
 }

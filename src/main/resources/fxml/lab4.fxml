@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<GridPane hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab4.Lab4Controller">
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25" />
+    </padding>
+
+   <TableView fx:id="table" prefHeight="400.0" prefWidth="300.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <columns>
+            <TableColumn prefWidth="100.0" text="X">
+                <cellValueFactory>
+                    <PropertyValueFactory property="x" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Y">
+                <cellValueFactory>
+                    <PropertyValueFactory property="y" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Z">
+                <cellValueFactory>
+                    <PropertyValueFactory property="z" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+   </TableView>
+    <LineChart fx:id="chart" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" title="Line chart">
+        <xAxis>
+            <NumberAxis  side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis side="LEFT" />
+        </yAxis>
+    </LineChart>
+    <VBox spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="0" alignment="CENTER">
+        <ChoiceBox fx:id="choiceBox" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="x(y, z)"/>
+                    <String fx:value="x(y, const)" />
+                    <String fx:value="x(const, z)" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <TextField fx:id="textFieldA" promptText="Enter a" onKeyPressed="#handleA"/>
+        <TextField fx:id="textFieldB" promptText="Enter b" onKeyPressed="#handleB"/>
+        <TextField fx:id="textFieldConst" promptText="Enter const" onKeyPressed="#handleConst"/>
+        <Button alignment="CENTER" text="Calculate" onAction="#handleButton"/>
+    </VBox>
+</GridPane>
