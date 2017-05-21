@@ -1,6 +1,7 @@
 package example;
 
 import processing.core.PApplet;
+import processing.core.PShape;
 
 import java.awt.*;
 
@@ -24,32 +25,32 @@ public class Example3D extends PApplet {
     @Override
     public void settings() {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        size(toolkit.getScreenSize().width - 50, toolkit.getScreenSize().height - 50, P3D);
+        size((int)toolkit.getScreenSize().getWidth() - 100, (int) toolkit.getScreenSize().getHeight() - 100, P3D);
     }
 
     @Override
     public void setup() {
-        background(0xFFFFFF);
+//        background(0xFFFFFF);
+//
+//        x = width/2;
+//        y = height/2;
+//        z = -100;
+//
 
-        x = width/2;
-        y = height/2;
-        z = -100;
-
-        frameRate(120);
     }
 
     @Override
     public void draw() {
-        translate(x,y,z);
-        rotateX((angle += random(5) % 360));
-        rotateY((angle += random(5) % 360));
-        rotateZ((angle += random(5) % 360));
-        rectMode(CENTER);
-        rect(0 + random(x/1.5f),0 + random(y/1.5f),random(100),random(100));
-        fill(random(0, 255), random(0, 255), random(0, 255));
-        stroke(random(0, 255), random(0, 255), random(0, 255));
-
-        z++; // The rectangle moves forward as z increments.
+//        translate(x,y,z);
+//        rotateX((angle += random(5) % 360));
+//        rotateY((angle += random(5) % 360));
+//        rotateZ((angle += random(5) % 360));
+//        rectMode(CENTER);
+//        rect(0 + random(x/1.5f),0 + random(y/1.5f),random(100),random(100));
+//        fill(random(0, 255), random(0, 255), random(0, 255));
+//        stroke(random(0, 255), random(0, 255), random(0, 255));
+//
+//        z++; // The createR moves forward as z increments.
 
     }
 }
